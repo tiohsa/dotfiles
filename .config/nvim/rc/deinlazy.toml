@@ -563,8 +563,22 @@ on_ft = 'less'
 
 #markdown
 [[plugins]]
-repo = 'kannokanno/previm'
-on_ft = ['markdown']
+repo = 'godlygeek/tabular'
+on_ft = 'markdown'
+
+[[plugins]]
+repo = 'plasticboy/vim-markdown'
+on_ft = 'markdown'
+hook_source = '''
+  let g:vim_markdown_toc_autofit = 1
+  let g:vim_markdown_conceal = 0
+  let g:tex_conceal = ""
+  let g:vim_markdown_math = 1
+'''
+
+[[plugins]]
+repo = 'previm/previm'
+on_ft = 'markdown'
 on_cmd = 'PrevimOpen'
 depends = 'open-browser.vim'
 

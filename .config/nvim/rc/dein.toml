@@ -85,12 +85,6 @@ repo = 'kana/vim-textobj-user'
 repo = 'kana/vim-operator-user'
 
 [[plugins]]
-repo = 'rcmdnk/vim-markdown'
-
-[[plugins]]
-repo = 'previm/previm'
-
-[[plugins]]
 repo = 'dhruvasagar/vim-table-mode'
 
 

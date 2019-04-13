@@ -24,6 +24,10 @@ augroup filetypedetect
 
   " Markdown
   autocmd BufRead,BufNewFile *.mkd,*.markdown,*.md,*.mdown,*.mkdn
-        \ setlocal filetype=mkd autoindent formatoptions=tcroqn2 comments=n:>
+        \ setlocal filetype=markdown autoindent formatoptions=tcroqn2 comments=n:>
+
+  " Vue.js
+  "autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
+  autocmd BufRead,BufNewFile *.vue setlocal filetype=vue
 augroup END
 

@@ -87,8 +87,6 @@ if !has('nvim') && has('gui_running')
   call s:source_rc('gui.rc.vim')
 endif
 
-source ~/.vim/rc/filetype.rc.vim
-
 source ~/.vim/rc/plugins/lightline.rc.vim
 "---------------------------------------------------------------------------
 
