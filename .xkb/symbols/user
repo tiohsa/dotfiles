@@ -1,0 +1,6 @@
+partial hidden modifier_keys
+xkb_symbols "keymap" {
+    replace key <HENK> { [ Zenkaku_Hankaku ] };
+    replace key <MUHE> { [ Escape ] };
+    replace key <CASP> { [ Control_L, Control_L ] };
+};

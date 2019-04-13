@@ -1,0 +1,490 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+# [[plugins]]
+# repo = 'godlygeek/csapprox'
+# if = "v:progname !=# 'gvim' && has('gui') && !has('nvim')"
+# hook_add = '''
+# " Convert colorscheme in Konsole.
+#  let g:CSApprox_konsole = 1
+#  let g:CSApprox_attr_map = { 'bold' : 'bold', 'italic' : '', 'sp' : '' }
+# '''
+
+# [[plugins]]
+# repo = 'thinca/vim-guicolorscheme'
+# if = "v:progname !=# 'gvim' && !has('gui') && !has('nvim')"
+
+[[plugins]]
+repo = 'tpope/vim-abolish'
+
+[[plugins]]
+repo = 'reedes/vim-lexical'
+hook_add = '''
+let g:lexical#spell = 1
+'''
+
+#[[plugins]]
+#repo = 'osyo-manga/vim-precious'
+#depends = ['context_filetype.vim']
+#hook_add = '''
+#" カーソル位置から前後 300行の範囲で判定を行う
+#let g:context_filetype#search_offset = 300
+#'''
+
+[[plugins]]
+repo = 'Shougo/context_filetype.vim'
+
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = 'toml'
+
+[[plugins]]
+repo = 'hail2u/vim-css3-syntax'
+
+#[[plugins]]
+#repo = 'kana/vim-filetype-haskell'
+
+#[[plugins]]
+#repo = 'mxw/vim-jsx'
+
+#[[plugins]]
+#repo = 'itchyny/vim-haskell-indent'
+
+#[[plugins]]
+#repo = 'udalov/kotlin-vim'
+
+#[[plugins]]
+#repo = 'shawncplus/phpcomplete.vim'
+
+[[plugins]]
+repo = 'jiangmiao/simple-javascript-indenter'
+
+#[[plugins]]
+#repo = 'thinca/vim-ft-diff_fold'
+
+#[[plugins]]
+#repo = 'thinca/vim-ft-help_fold'
+
+#[[plugins]]
+#repo = 'vim-jp/cpp-vim'
+
+[[plugins]]
+repo = 'elzr/vim-json'
+
+[[plugins]]
+repo = 'vim-jp/autofmt'
+
+[[plugins]]
+repo = 'kana/vim-textobj-user'
+
+#[[plugins]]
+#repo = 'hynek/vim-python-pep8-indent'
+
+# Operators
+[[plugins]]
+repo = 'kana/vim-operator-user'
+
+[[plugins]]
+repo = 'rcmdnk/vim-markdown'
+
+[[plugins]]
+repo = 'previm/previm'
+
+[[plugins]]
+repo = 'dhruvasagar/vim-table-mode'
+
+
+# [[plugins]]
+# repo = 'marijnh/tern_for_vim'
+# build = 'npm install'
+
+# [[plugins]]
+# repo = 'vim-ruby/vim-ruby'
+
+[[plugins]]
+repo = 'honza/vim-snippets'
+if = 0
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+if = 0
+
+#[[plugins]]
+#repo = 'osyo-manga/unite-vimpatches'
+
+[[plugins]]
+repo = 'mattn/webapi-vim'
+
+[[plugins]]
+repo = 'jelera/vim-javascript-syntax'
+
+[[plugins]]
+repo = 'dart-lang/dart-vim-plugin'
+
+#[[plugins]]
+#repo = 'JesseKPhillips/d.vim'
+
+#[[plugins]]
+#repo = 'nsf/gocode'
+#rtp = 'vim'
+
+[[plugins]]
+repo = 'vim-jp/vimdoc-ja'
+
+[[plugins]]
+repo = 'kballard/vim-fish'
+
+#[[plugins]]
+#repo = 'Shougo/neossh.vim'
+
+#[[plugins]]
+#repo = 'thinca/vim-themis'
+
+#[[plugins]]
+#repo = 'tsukkee/unite-tag'
+
+#[[plugins]]
+repo = 'Shougo/unite-outline'
+
+[[plugins]]
+repo = 'ujihisa/neco-look'
+
+[[plugins]]
+repo = 'Shougo/neco-syntax'
+
+[[plugins]]
+repo = 'nixprime/cpsm'
+build = 'env PY3=ON ./install.sh'
+
+[[plugins]]
+repo = 'chemzqm/denite-git'
+
+[[plugins]]
+repo = 'flazz/vim-colorschemes'
+
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+
+[[plugins]]
+repo = 'szw/vim-g'
+
+[[plugins]]
+repo = 'othree/eregex.vim'
+
+[[plugins]]
+repo = 'tpope/vim-surround'
+
+[[plugins]]
+repo = 'osyo-manga/vim-brightest'
+hook_add = '''
+" ハイライトするグループ名を設定
+" アンダーラインで表示する
+  let g:brightest#highlight = {
+  \   "group" : "BrightestUnderline"
+  \}
+'''
+
+[[plugins]]
+repo = 'easymotion/vim-easymotion'
+hook_add = '''
+" <Leader>f{char} to move to {char}
+map  <Leader>f <Plug>(easymotion-bd-f)
+nmap <Leader>f <Plug>(easymotion-overwin-f)
+
+" s{char}{char} to move to {char}{char}
+nmap <Leader>s <Plug>(easymotion-overwin-f2)
+vmap <Leader>s <Plug>(easymotion-bd-f2)
+
+" Move to line
+map <Leader>L <Plug>(easymotion-bd-jk)
+nmap <Leader>L <Plug>(easymotion-overwin-line)
+
+" Move to word
+map  <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>w <Plug>(easymotion-overwin-w)
+let g:EasyMotion_do_mapping = 0
+'''
+
+#[[plugins]]
+#repo = 'spolu/dwm.vim'
+
+# dwmが動作しなくなる？
+#[[plugins]]
+#repo = 'kannokanno/unite-dwm'
+#depends = ['dwm.vim', 'unite.vim']
+
+[[plugins]]
+repo = 'junegunn/vim-easy-align'
+[[plugins]]
+repo = 'airblade/vim-rooter'
+
+#[[plugins]]
+#repo = 'skywind3000/asyncrun.vim'
+
+#[[plugins]]
+#repo = 'vim-syntastic/syntastic'
+#hook_add = '''
+#set statusline+=%#warningmsg#
+#set statusline+=%{SyntasticStatuslineFlag()}
+#set statusline+=%*
+#
+#let g:syntastic_always_populate_loc_list = 1
+#let g:syntastic_auto_loc_list = 1
+#let g:syntastic_check_on_open = 1
+#let g:syntastic_check_on_wq = 0
+#
+#"let g:syntastic_rust_checkers = ['rustc']
+#let g:syntastic_rust_checkers = ['cargo']
+#'''
+
+[[plugins]]
+repo = 'scrooloose/nerdcommenter'
+
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+
+hook_add = '''
+map <F2> :NERDTreeToggle<CR>
+'''
+
+[[plugins]]
+repo = 'Shougo/context_filetype.vim'
+
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = 'toml'
+
+[[plugins]]
+repo = 'hail2u/vim-css3-syntax'
+
+#[[plugins]]
+#repo = 'kana/vim-filetype-haskell'
+
+#[[plugins]]
+#repo = 'mxw/vim-jsx'
+
+#[[plugins]]
+#repo = 'itchyny/vim-haskell-indent'
+
+#[[plugins]]
+#repo = 'udalov/kotlin-vim'
+
+#[[plugins]]
+#repo = 'shawncplus/phpcomplete.vim'
+
+[[plugins]]
+repo = 'jiangmiao/simple-javascript-indenter'
+
+#[[plugins]]
+#repo = 'thinca/vim-ft-diff_fold'
+
+#[[plugins]]
+#repo = 'thinca/vim-ft-help_fold'
+
+#[[plugins]]
+#repo = 'vim-jp/cpp-vim'
+
+[[plugins]]
+repo = 'elzr/vim-json'
+
+[[plugins]]
+repo = 'vim-jp/autofmt'
+
+[[plugins]]
+repo = 'kana/vim-textobj-user'
+
+#[[plugins]]
+#repo = 'hynek/vim-python-pep8-indent'
+
+# Operators
+[[plugins]]
+repo = 'kana/vim-operator-user'
+
+# [[plugins]]
+# repo = 'marijnh/tern_for_vim'
+# build = 'npm install'
+
+# [[plugins]]
+# repo = 'vim-ruby/vim-ruby'
+
+[[plugins]]
+repo = 'honza/vim-snippets'
+if = 0
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+if = 0
+
+#[[plugins]]
+#repo = 'osyo-manga/unite-vimpatches'
+
+[[plugins]]
+repo = 'mattn/webapi-vim'
+
+[[plugins]]
+repo = 'jelera/vim-javascript-syntax'
+
+#[[plugins]]
+#repo = 'JesseKPhillips/d.vim'
+
+#[[plugins]]
+#repo = 'nsf/gocode'
+#rtp = 'vim'
+
+[[plugins]]
+repo = 'vim-jp/vimdoc-ja'
+
+[[plugins]]
+repo = 'kballard/vim-fish'
+
+#[[plugins]]
+#repo = 'Shougo/neossh.vim'
+
+#[[plugins]]
+#repo = 'thinca/vim-themis'
+
+#[[plugins]]
+#repo = 'tsukkee/unite-tag'
+
+#[[plugins]]
+repo = 'Shougo/unite-outline'
+
+[[plugins]]
+repo = 'ujihisa/neco-look'
+
+[[plugins]]
+repo = 'Shougo/neco-syntax'
+
+[[plugins]]
+repo = 'nixprime/cpsm'
+build = 'env PY3=ON ./install.sh'
+
+[[plugins]]
+repo = 'chemzqm/denite-git'
+
+[[plugins]]
+repo = 'flazz/vim-colorschemes'
+
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+
+[[plugins]]
+repo = 'szw/vim-g'
+
+[[plugins]]
+repo = 'othree/eregex.vim'
+
+[[plugins]]
+repo = 'tpope/vim-surround'
+
+[[plugins]]
+repo = 'osyo-manga/vim-brightest'
+hook_add = '''
+" ハイライトするグループ名を設定
+" アンダーラインで表示する
+  let g:brightest#highlight = {
+  \   "group" : "BrightestUnderline"
+  \}
+'''
+
+[[plugins]]
+repo = 'easymotion/vim-easymotion'
+hook_add = '''
+" <Leader>f{char} to move to {char}
+map  <Leader>f <Plug>(easymotion-bd-f)
+nmap <Leader>f <Plug>(easymotion-overwin-f)
+
+" s{char}{char} to move to {char}{char}
+nmap <Leader>s <Plug>(easymotion-overwin-f2)
+vmap <Leader>s <Plug>(easymotion-bd-f2)
+
+" Move to line
+map <Leader>L <Plug>(easymotion-bd-jk)
+nmap <Leader>L <Plug>(easymotion-overwin-line)
+
+" Move to word
+map  <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>w <Plug>(easymotion-overwin-w)
+let g:EasyMotion_do_mapping = 0
+'''
+
+#[[plugins]]
+#repo = 'spolu/dwm.vim'
+
+# dwmが動作しなくなる？
+#[[plugins]]
+#repo = 'kannokanno/unite-dwm'
+#depends = ['dwm.vim', 'unite.vim']
+
+[[plugins]]
+repo = 'junegunn/vim-easy-align'
+
+[[plugins]]
+repo = 'airblade/vim-rooter'
+
+#[[plugins]]
+#repo = 'skywind3000/asyncrun.vim'
+
+[[plugins]]
+repo = 'scrooloose/nerdcommenter'
+
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+
+hook_add = '''
+map <F2> :NERDTreeToggle<CR>
+'''
+
+[[plugins]]
+repo = 'w0rp/ale'
+hook_add = '''
+let g:ale_fixers = {
+\   'javascript': ['eslint'],
+\}
+let g:ale_lint_on_text_changed = 0
+let g:ale_linters = {
+      \ 'javascript': ['eslint'],
+      \ 'html': ['tidy'],
+      \ 'css': ['csslint'],
+      \ }
+"audo fixing
+let g:ale_fix_on_save = 1
+nmap <silent> <F9> <Plug>(ale_next_wrap)
+nmap <silent> <F8> <Plug>(ale_previous_wrap)
+" Enable completion where available.
+let g:ale_completion_enabled = 1
+"Show sign column
+let g:ale_sign_column_always = 1
+
+"set statusline+=%#warningmsg#
+set statusline+=%{ALEGetStatusLine()}
+"#set statusline+=%*
+'''
+
+[[plugins]]
+repo = 'iyuuya/denite-ale'
+hook_add = '''
+nnoremap <silent> [Space]a :<C-u>Denite ale -buffer-name=search -mode=normal<CR>
+'''
+
+[[plugins]]
+repo = 'autozimu/LanguageClient-neovim'
+rev = 'next'
+build = 'bash install.sh'
+hook_add = '''
+" Required for operations modifying multiple buffers like rename.
+set hidden
+
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+    \ 'vue': ['vls'],
+    \ 'javascript': ['javascript-typescript-stdio'],
+    \ 'typescript': ['javascript-typescript-stdio'],
+    \ }
+
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+" Or map each action separately
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+'''
