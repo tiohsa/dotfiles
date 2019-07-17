@@ -27,14 +27,14 @@ call unite#custom#profile('action', 'context', {
 
 " Custom filters."{{{
 call unite#custom#source(
-      \ 'buffer,file_rec,file_rec/async,file_rec/git', 'matchers',
+      \ 'buffer,file/rec,file/rec/async,file/rec/git', 'matchers',
       \ ['converter_relative_word', 'matcher_fuzzy'])
 call unite#custom#source(
       \ 'file_mru', 'matchers',
       \ ['matcher_project_files', 'matcher_fuzzy',
       \  'matcher_hide_hidden_files', 'matcher_hide_current_file'])
 call unite#custom#source(
-      \ 'file_rec,file_rec/async,file_rec/git,file_mru', 'converters',
+      \ 'file/rec,file/rec/async,file/rec/git,file_mru', 'converters',
       \ ['converter_uniq_word'])
 call unite#custom#source(
       \ 'buffer', 'converters',

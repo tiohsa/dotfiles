@@ -68,7 +68,7 @@ hook_add = '''
         \ register neoyank<CR>
 
   "nnoremap <silent> [Window]<Space>
-  "      \ :<C-u>Denite file_rec:~/.vim/rc<CR>
+  "      \ :<C-u>Denite file/rec:~/.vim/rc<CR>
 
   nnoremap <silent> [Space]l :<C-u>Denite -buffer-name=search
         \ line<CR>
@@ -76,12 +76,12 @@ hook_add = '''
   nnoremap <silent> [Space]* :<C-u>DeniteCursorWord -buffer-name=search
         \ -mode=normal line<CR>
 
-  nnoremap <silent> [Space]f :<C-u>DeniteBufferDir file_rec/current -buffer-name=search -mode=normal<CR>
+  nnoremap <silent> [Space]f :<C-u>DeniteBufferDir file/rec/current -buffer-name=search -mode=normal<CR>
 
-  nnoremap <silent> [Space]n :<C-u>Denite file_point
-        \ `finddir('.git', ';') != '' ? 'file_rec/git' : 'file_rec'`<CR>
+  nnoremap <silent> [Space]n :<C-u>Denite file/point
+        \ `finddir('.git', ';') != '' ? 'file/rec/git' : 'file/rec'`<CR>
 
-  nnoremap <silent> [Space]s :<C-u>Denite file_rec<CR>
+  nnoremap <silent> [Space]s :<C-u>Denite file/rec<CR>
 
   nnoremap <silent><expr> tt  &filetype == 'help' ?  "g\<C-]>" :
         \ ":\<C-u>DeniteCursorWord -buffer-name=tag -immediately
