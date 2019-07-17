@@ -1,33 +1,27 @@
 "---------------------------------------------------------------------------
 " denite.nvim
 "
-
-if executable('rg')
-  call denite#custom#var('file/rec', 'command',
-        \ ['rg', '--files', '--glob', '!.git'])
-        "\ ['rg', '--files', '--ignore-file', '~/.config/nvim/rc/plugins/.gitignore'])
-  "call denite#custom#var('grep', 'command', ['rg', '--threads', '1'])
-  "call denite#custom#var('grep', 'command', ['rg', '--threads', '1', '--ignore-file', '~/.config/nvim/rc/plugins/.gitignore'])
-  call denite#custom#var('grep', 'command', ['rg', '--threads', '1'])
-  call denite#custom#var('grep', 'default_opts',
-        \ ['--vimgrep', '--no-heading'])
-  call denite#custom#var('grep', 'recursive_opts', [])
-  call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
-  call denite#custom#var('grep', 'separator', ['--'])
-  call denite#custom#var('grep', 'final_opts', [])
-else
-  call denite#custom#var('file/rec', 'command',
-        \ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
-endif
+call denite#custom#var('file/rec', 'command',
+      \ ['rg', '--files', '--glob', '!.git'])
+      "\ ['rg', '--files', '--ignore-file', '~/.config/nvim/rc/plugins/.gitignore'])
+"call denite#custom#var('grep', 'command', ['rg', '--threads', '1'])
+"call denite#custom#var('grep', 'command', ['rg', '--threads', '1', '--ignore-file', '~/.config/nvim/rc/plugins/.gitignore'])
+call denite#custom#var('grep', 'command', ['rg'])
+call denite#custom#var('grep', 'default_opts',
+    \ ['-i', '--vimgrep', '--no-heading'])
+call denite#custom#var('grep', 'recursive_opts', [])
+call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
+call denite#custom#var('grep', 'separator', ['--'])
+call denite#custom#var('grep', 'final_opts', [])
 
 call denite#custom#source('file/old', 'matchers',
-      \ ['matcher_fuzzy', 'matcher_project_files'])
+      \ ['matcher/fuzzy', 'matcher/project_files'])
 if has('nvim')
   call denite#custom#source('file/rec,grep', 'matchers',
-        \ ['matcher_cpsm'])
+        \ ['matcher/cpsm'])
 endif
 call denite#custom#source('file/old', 'converters',
-      \ ['converter_relative_word'])
+      \ ['converter/relative_word'])
 
 call denite#custom#map('insert', '<C-j>',
       \ '<denite:move_to_next_line>', 'noremap')
@@ -49,7 +43,7 @@ call denite#custom#var('file/rec/current', 'command',
 " call denite#custom#option('default', 'prompt', '>')
 " call denite#custom#option('default', 'short_source_names', v:true)
 call denite#custom#option('default', {
-      \ 'prompt': '>', 'short_source_names': v:true
+      \ 'prompt': '>', 'source_names': v:true
       \ })
 
 let s:menus = {}
@@ -61,7 +55,7 @@ let s:menus.vim.file_candidates = [
     \ ]
 call denite#custom#var('menu', 'menus', s:menus)
 
-call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
+call denite#custom#filter('matcher/ignore_globs', 'ignore_globs',
       \ [ '.git/', '.ropeproject/', '__pycache__/',
       \   'venv/', 'images/', '*.min.*', 'img/', 'fonts/'])
 

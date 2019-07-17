@@ -458,7 +458,7 @@ set statusline+=%{ALEGetStatusLine()}
 [[plugins]]
 repo = 'iyuuya/denite-ale'
 hook_add = '''
-nnoremap <silent> [Space]a :<C-u>Denite ale -buffer-name=search -mode=normal<CR>
+nnoremap <silent> [Space]a :<C-u>Denite ale -buffer-name=search<CR>
 '''
 
 [[plugins]]
