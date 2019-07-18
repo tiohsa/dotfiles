@@ -29,5 +29,8 @@ augroup filetypedetect
   " Vue.js
   "autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
   autocmd BufRead,BufNewFile *.vue setlocal filetype=vue
+
+  " Todo
+  autocmd BufRead,BufNewFile *.todo setlocal filetype=todo
 augroup END
 

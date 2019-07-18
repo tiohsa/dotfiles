@@ -602,3 +602,19 @@ repo = 'previm/previm'
 on_ft = 'markdown'
 on_cmd = 'PrevimOpen'
 depends = 'open-browser.vim'
+
+[[plugins]]
+repo = 'aserebryakov/vim-todo-lists'
+on_ft = 'todo'
+hook_source = '''
+let g:VimTodoListsCustomKeyMapper = 'VimTodoListsCustomMappings'
+
+function! VimTodoListsCustomMappings()
+  nnoremap <buffer> s :VimTodoListsToggleItem<CR>
+  nnoremap <buffer> <Space> :VimTodoListsToggleItem<CR>
+  noremap <buffer> <leader>e :silent call VimTodoListsSetItemMode()<CR>
+endfunction
+
+let g:VimTodoListsDatesEnabled = 1
+let g:VimTodoListsDatesFormat = "%F"
+'''
