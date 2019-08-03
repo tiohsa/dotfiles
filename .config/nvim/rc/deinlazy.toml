@@ -55,6 +55,99 @@ depends = 'neomru.vim'
 hook_source = 'source ~/.vim/rc/plugins/unite.rc.vim'
 
 [[plugins]]
+repo = 'Shougo/defx.nvim'
+hook_add = '''
+nnoremap <silent>   [Space]f
+\ :<C-u>Defx -listed -resume -buffer-name=tab`tabpagenr()`<CR>
+'''
+hook_source = '''
+call defx#custom#column('mark', {
+        \ 'readonly_icon': '✗',
+        \ 'selected_icon': '✓',
+        \ })
+call defx#custom#column('icon', {
+        \ 'directory_icon': '▸',
+        \ 'opened_icon': '▾',
+        \ 'root_icon': ' ',
+        \ })
+'''
+[plugins.ftplugin]
+defx = '''
+" Define mappings
+nnoremap <silent><buffer><expr> <CR>
+\ defx#async_action('drop')
+nnoremap <silent><buffer><expr> c
+\ defx#do_action('copy')
+nnoremap <silent><buffer><expr> !
+\ defx#do_action('execute_command')
+nnoremap <silent><buffer><expr> m
+\ defx#do_action('move')
+nnoremap <silent><buffer><expr> p
+\ defx#do_action('paste')
+nnoremap <silent><buffer><expr> l
+\ defx#async_action('open')
+nnoremap <silent><buffer><expr> E
+\ defx#do_action('open', 'vsplit')
+nnoremap <silent><buffer><expr> P
+\ defx#do_action('open', 'pedit')
+nnoremap <silent><buffer><expr> o
+\ defx#async_action('open_or_close_tree')
+nnoremap <silent><buffer><expr> O
+\ defx#async_action('open_tree_recursive')
+nnoremap <silent><buffer><expr> K
+\ defx#do_action('new_directory')
+nnoremap <silent><buffer><expr> N
+\ defx#do_action('new_file')
+nnoremap <silent><buffer><expr> M
+\ defx#do_action('new_multiple_files')
+nnoremap <silent><buffer><expr> C
+\ defx#do_action('toggle_columns', 'mark:filename:type:size:time')
+nnoremap <silent><buffer><expr> S
+\ defx#do_action('toggle_sort', 'Time')
+nnoremap <silent><buffer><expr> se
+\ defx#do_action('add_session')
+nnoremap <silent><buffer><expr> sl
+\ defx#do_action('load_session')
+nnoremap <silent><buffer><expr> d
+\ defx#do_action('remove_trash')
+nnoremap <silent><buffer><expr> r
+\ defx#do_action('rename')
+nnoremap <silent><buffer><expr> x
+\ defx#do_action('execute_system')
+nnoremap <silent><buffer><expr> >
+\ defx#do_action('toggle_ignored_files')
+nnoremap <silent><buffer><expr> .
+\ defx#do_action('repeat')
+nnoremap <silent><buffer><expr> yy
+\ defx#do_action('yank_path')
+nnoremap <silent><buffer><expr> h
+\ defx#async_action('cd', ['..'])
+nnoremap <silent><buffer><expr> ~
+\ defx#async_action('cd')
+nnoremap <silent><buffer><expr> \
+\ defx#do_action('cd', getcwd())
+nnoremap <silent><buffer><expr> q
+\ defx#do_action('quit')
+nnoremap <silent><buffer><expr> <Space>
+\ defx#do_action('toggle_select') . 'j'
+nnoremap <silent><buffer><expr> *
+\ defx#do_action('toggle_select_all')
+nnoremap <silent><buffer><expr> j
+\ line('.') == line('$') ? 'gg' : 'j'
+nnoremap <silent><buffer><expr> k
+\ line('.') == 1 ? 'G' : 'k'
+nnoremap <silent><buffer><expr> <C-l>
+\ defx#do_action('redraw')
+xnoremap <silent><buffer><expr> <CR>
+\ defx#do_action('toggle_select_visual')
+nnoremap <silent><buffer><expr> <C-g>
+\ defx#do_action('print')
+nnoremap <silent><buffer><expr> <Tab> winnr('$') != 1 ?
+\ ':<C-u>wincmd w<CR>' :
+\ ':<C-u>Defx -buffer-name=temp -split=vertical<CR>'
+'''
+
+[[plugins]]
 repo = 'Shougo/denite.nvim'
 depends = 'neomru.vim'
 on_cmd = 'Denite'
@@ -76,7 +169,7 @@ hook_add = '''
   nnoremap <silent> [Space]* :<C-u>DeniteCursorWord -buffer-name=search
         \ line<CR>
 
-  nnoremap <silent> [Space]f :<C-u>DeniteBufferDir file/rec/current -buffer-name=search<CR>
+  "nnoremap <silent> [Space]f :<C-u>DeniteBufferDir file/rec/current -buffer-name=search<CR>
 
   nnoremap <silent> [Space]n :<C-u>Denite file/point
         \ `finddir('.git', ';') != '' ? 'file/rec/git' : 'file/rec'`<CR>
@@ -128,16 +221,26 @@ hook_add = '''
   function! s:denite_my_settings() abort
     nnoremap <silent><buffer><expr> <CR>
     \ denite#do_map('do_action')
+    nnoremap <silent><buffer><expr> a
+    \ denite#do_map('choose_action')
     nnoremap <silent><buffer><expr> d
     \ denite#do_map('do_action', 'delete')
     nnoremap <silent><buffer><expr> p
     \ denite#do_map('do_action', 'preview')
     nnoremap <silent><buffer><expr> q
     \ denite#do_map('quit')
+    nnoremap <silent><buffer><expr> '
+    \ denite#do_map('quick_move')
     nnoremap <silent><buffer><expr> i
     \ denite#do_map('open_filter_buffer')
     nnoremap <silent><buffer><expr> <Space>
     \ denite#do_map('toggle_select').'j'
+    nnoremap <silent><buffer><expr> r
+    \ denite#do_map('do_action', 'quickfix')
+    nnoremap <silent><buffer><expr> <C-r>
+    \ denite#do_map('restore_sources')
+    nnoremap <silent><buffer><expr> w
+    \ denite#do_map('do_action', 'vsplit')
   endfunction
 
   autocmd FileType denite-filter call s:denite_filter_my_settings()
@@ -146,41 +249,41 @@ hook_add = '''
   endfunction
 '''
 
-[[plugins]]
-repo = 'Shougo/vimfiler.vim'
-depends = 'unite.vim'
-on_map = {n = '<Plug>'}
-on_if = "isdirectory(bufname('%'))"
-hook_add = 'nnoremap <silent>   [Space]v   :<C-u>VimFiler -invisible<CR>'
-hook_source = '''
-call vimfiler#custom#profile('default', 'context', {
-      \ 'safe' : 0,
-      \ 'auto_expand' : 1,
-      \ 'parent' : 0,
-      \ })
-
-let g:vimfiler_as_default_explorer = 1
-if IsWindows()
-  let g:vimfiler_detect_drives = [
-        \ 'C:/', 'D:/', 'E:/', 'F:/', 'G:/', 'H:/', 'I:/',
-        \ 'J:/', 'K:/', 'L:/', 'M:/', 'N:/']
-  " Use trashbox.
-  let g:unite_kind_file_use_trashbox = 1
-else
-  " Like Textmate icons.
-  let g:vimfiler_tree_leaf_icon = ' '
-  let g:vimfiler_tree_opened_icon = '▾'
-  let g:vimfiler_tree_closed_icon = '▸'
-  let g:vimfiler_file_icon = ' '
-  let g:vimfiler_readonly_file_icon = '✗'
-  let g:vimfiler_marked_file_icon = '✓'
-endif
-
-autocmd MyAutoCmd FileType vimfiler call s:vimfiler_my_settings()
-function! s:vimfiler_my_settings() abort "{{{
-  nmap <buffer> <Tab> <Plug>(vimfiler_switch_to_other_window)
-endfunction"}}}
-'''
+#[[plugins]]
+#repo = 'Shougo/vimfiler.vim'
+#depends = 'unite.vim'
+#on_map = {n = '<Plug>'}
+#on_if = "isdirectory(bufname('%'))"
+#hook_add = 'nnoremap <silent>   [Space]v   :<C-u>VimFiler -invisible<CR>'
+#hook_source = '''
+#call vimfiler#custom#profile('default', 'context', {
+#      \ 'safe' : 0,
+#      \ 'auto_expand' : 1,
+#      \ 'parent' : 0,
+#      \ })
+#
+#let g:vimfiler_as_default_explorer = 1
+#if IsWindows()
+#  let g:vimfiler_detect_drives = [
+#        \ 'C:/', 'D:/', 'E:/', 'F:/', 'G:/', 'H:/', 'I:/',
+#        \ 'J:/', 'K:/', 'L:/', 'M:/', 'N:/']
+#  " Use trashbox.
+#  let g:unite_kind_file_use_trashbox = 1
+#else
+#  " Like Textmate icons.
+#  let g:vimfiler_tree_leaf_icon = ' '
+#  let g:vimfiler_tree_opened_icon = '▾'
+#  let g:vimfiler_tree_closed_icon = '▸'
+#  let g:vimfiler_file_icon = ' '
+#  let g:vimfiler_readonly_file_icon = '✗'
+#  let g:vimfiler_marked_file_icon = '✓'
+#endif
+#
+#autocmd MyAutoCmd FileType vimfiler call s:vimfiler_my_settings()
+#function! s:vimfiler_my_settings() abort "{{{
+#  nmap <buffer> <Tab> <Plug>(vimfiler_switch_to_other_window)
+#endfunction"}}}
+#'''
 
 #[[plugins]]
 #repo = 'Shougo/vimshell.vim'

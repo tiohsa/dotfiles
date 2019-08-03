@@ -14,13 +14,14 @@ autocmd BufWritePre * call <SID>remove_dust()
 
 "実行コマンド
 command! Run call s:Run()
-nmap <F5> :Run<CR>
+nmap <Leader>r :Run<CR>
 function! s:Run()
   let e = expand("%:e")
   if e == "rs"
     ":RustRun
     :w
-    :!cargo run
+    ":!cargo run
+    :!cargo test -- --nocapture
   endif
 endfunction
 

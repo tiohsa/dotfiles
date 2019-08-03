@@ -24,15 +24,6 @@ endif
 call denite#custom#source('file/old', 'converters',
       \ ['converter/relative_word'])
 
-call denite#custom#map('insert', '<C-j>',
-      \ '<denite:move_to_next_line>', 'noremap')
-call denite#custom#map('insert', '<C-k>',
-      \ '<denite:move_to_previous_line>', 'noremap')
-call denite#custom#map('insert', "'",
-      \ '<denite:move_to_next_line>', 'noremap')
-call denite#custom#map('normal', 'r',
-      \ '<denite:do_action:quickfix>', 'noremap')
-
 call denite#custom#alias('source', 'file/rec/git', 'file/rec')
 call denite#custom#var('file/rec/git', 'command',
       \ ['git', 'ls-files', '-co', '--exclude-standard'])
@@ -60,9 +51,13 @@ call denite#custom#filter('matcher/ignore_globs', 'ignore_globs',
       \ [ '.git/', '.ropeproject/', '__pycache__/',
       \   'venv/', 'images/', '*.min.*', 'img/', 'fonts/'])
 
-call denite#custom#map(
-      \ 'normal',
-      \ 'w',
-      \ '<denite:do_action:vsplit>',
-      \ 'noremap'
-      \)
+"call denite#custom#map('insert', '<C-j>',
+"      \ '<denite:move_to_next_line>', 'noremap')
+"call denite#custom#map('insert', '<C-k>',
+"      \ '<denite:move_to_previous_line>', 'noremap')
+"call denite#custom#map('insert', "'",
+"      \ '<denite:move_to_next_line>', 'noremap')
+"call denite#custom#map('normal', 'r',
+"      \ '<denite:do_action:quickfix>', 'noremap')
+"call denite#custom#map('normal', 'w',
+"      \ '<denite:do_action:vsplit>', 'noremap')
