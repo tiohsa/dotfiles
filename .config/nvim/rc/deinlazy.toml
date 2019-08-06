@@ -55,21 +55,49 @@ depends = 'neomru.vim'
 hook_source = 'source ~/.vim/rc/plugins/unite.rc.vim'
 
 [[plugins]]
-repo = 'Shougo/defx.nvim'
+repo ='kristijanhusak/defx-icons'
+
+[[plugins]]
+repo ='kristijanhusak/defx-git'
 hook_add = '''
-nnoremap <silent>   [Space]f
-\ :<C-u>Defx -listed -resume -buffer-name=tab`tabpagenr()`<CR>
+  let g:defx_git#indicators = {
+    \ 'Modified'  : '+',
+    \ 'Staged'    : '●',
+    \ 'Untracked' : '?',
+    \ 'Renamed'   : '➜',
+    \ 'Unmerged'  : '═',
+    \ 'Deleted'   : 'x',
+    \ 'Unknown'   : '?'
+    \ }
+'''
+
+[[plugins]]
+repo = 'Shougo/defx.nvim'
+on_cmd = 'Defx'
+depends = ['defx-icons', 'defx-git']
+hook_add = '''
+nnoremap <silent>   [Space]t
+\ :<C-u>Defx -listed -resume -split=vertical -winwidth=30 -direction=topleft -buffer-name=tab`tabpagenr()`<CR>
 '''
 hook_source = '''
-call defx#custom#column('mark', {
-        \ 'readonly_icon': '✗',
-        \ 'selected_icon': '✓',
-        \ })
-call defx#custom#column('icon', {
-        \ 'directory_icon': '▸',
-        \ 'opened_icon': '▾',
-        \ 'root_icon': ' ',
-        \ })
+function! Root(path) abort
+    return fnamemodify(a:path, ':t')
+  endfunction
+  call defx#custom#source('file', {
+      \ 'root': 'Root',
+      \})
+  call defx#custom#column('filename', {
+      \ 'directory_icon': '',
+      \ 'opened_icon': '',
+      \ })
+  call defx#custom#column('mark', {
+      \ 'readonly_icon': '✗',
+      \ 'selected_icon': '✓',
+      \ })
+  call defx#custom#option('_', {
+      \ 'columns': 'indent:git:icons:filename',
+      \ 'show_ignored_files': 1,
+      \ })
 '''
 [plugins.ftplugin]
 defx = '''
@@ -169,7 +197,7 @@ hook_add = '''
   nnoremap <silent> [Space]* :<C-u>DeniteCursorWord -buffer-name=search
         \ line<CR>
 
-  "nnoremap <silent> [Space]f :<C-u>DeniteBufferDir file/rec/current -buffer-name=search<CR>
+  nnoremap <silent> [Space]f :<C-u>DeniteBufferDir file/rec/current -buffer-name=search<CR>
 
   nnoremap <silent> [Space]n :<C-u>Denite file/point
         \ `finddir('.git', ';') != '' ? 'file/rec/git' : 'file/rec'`<CR>
