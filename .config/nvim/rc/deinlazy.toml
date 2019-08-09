@@ -578,6 +578,7 @@ hook_add = '''
   let g:rustfmt_autosave = 1
   nnoremap <Leader>r :<C-u>Crun<CR>
   nnoremap <Leader>e :<C-u>RustTest!<CR>
+  nnoremap <Leader>b :<C-u>RustTest<CR>
 '''
 
 [[plugins]]
