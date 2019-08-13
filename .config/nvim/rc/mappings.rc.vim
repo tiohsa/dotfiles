@@ -177,8 +177,8 @@ nnoremap Y y$
 "nnoremap <expr> /r ':%s/\<' . expand('<cword>') . '\>;'
 "vnoremap <expr> /r ':s/\<' . expand('<cword>') . '\>;'
 
-" Esc Esc でハイライトOFF
-nnoremap <Esc><Esc> :<C-u>set nohlsearch<Return>
+" Ctrl+l でハイライトOFF
+nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
 " open terminal
 nnoremap <Leader>oc :<C-u>!gnome-terminal --disable-factory<Return>
