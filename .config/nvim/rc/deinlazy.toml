@@ -658,14 +658,14 @@ on_event = 'BufRead'
 #  \ help nnoremap <silent><buffer> ,r  :<C-u>VimhelpLint!<CR>
 #'''
 
-[[plugins]]
-repo = 'racer-rust/vim-racer'
-on_ft = 'rust'
-hook_source = '''
-  let $RUST_SRC_PATH = expand('~/.multirust/toolchains/'
-  \ .'nightly-x86_64-unknown-linux-gnu/'
-  \ .'lib/rustlib/src/rust/src/')
-'''
+#[[plugins]]
+#repo = 'racer-rust/vim-racer'
+#on_ft = 'rust'
+#hook_source = '''
+#  let $RUST_SRC_PATH = expand('~/.multirust/toolchains/'
+#  \ .'nightly-x86_64-unknown-linux-gnu/'
+#  \ .'lib/rustlib/src/rust/src/')
+#'''
 
 #javascritp
 [[plugins]]
