@@ -92,8 +92,8 @@ repo = 'dhruvasagar/vim-table-mode'
 # repo = 'marijnh/tern_for_vim'
 # build = 'npm install'
 
-# [[plugins]]
-# repo = 'vim-ruby/vim-ruby'
+[[plugins]]
+repo = 'vim-ruby/vim-ruby'
 
 [[plugins]]
 repo = 'honza/vim-snippets'
@@ -289,6 +289,7 @@ let g:LanguageClient_serverCommands = {
     \ 'vue': ['vls'],
     \ 'javascript': ['javascript-typescript-stdio'],
     \ 'typescript': ['javascript-typescript-stdio'],
+    \ 'ruby': ['solargraph', 'stdio'],
     \ }
 
 let g:LanguageClient_autoStart = 1
@@ -301,4 +302,7 @@ nnoremap <silent> <Leader>lf :call LanguageClient#textDocument_formatting()<CR>
 
 [[plugins]]
 repo = 'haya14busa/vim-open-googletranslate'
+
+#[[plugins]]
+#repo = 'Yggdroot/indentLine'
 

@@ -12,3 +12,5 @@ alias aptu='sudo apt update; apt list --upgradable'
 alias aptg='sudo apt upgrade'
 
 alias gst='git status'
+
+alias pip='python -m pip'
