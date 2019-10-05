@@ -766,5 +766,5 @@ hook_source = '''
   " Prettierのパースエラーをquickfixに表示しない
   let g:prettier#quickfix_enabled = 0
 
-  autocmd BufWritePre *.js,*.ts,*.vue,*.css,*.scss,*.json,*.md, *.html PrettierAsync
+  autocmd BufWritePre *.js,*.ts,*.vue,*.css,*.scss,*.json,*.md,*.html PrettierAsync
 '''
