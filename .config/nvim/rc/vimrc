@@ -94,3 +94,4 @@ set secure
 
 " vim: foldmethod=marker
 set nofoldenable "disable folding
+set conceallevel=0

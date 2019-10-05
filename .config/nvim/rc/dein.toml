@@ -96,6 +96,12 @@ repo = 'dhruvasagar/vim-table-mode'
 repo = 'vim-ruby/vim-ruby'
 
 [[plugins]]
+repo = 'tpope/vim-rails'
+
+[[plugins]]
+repo = 'tpope/vim-endwise'
+
+[[plugins]]
 repo = 'honza/vim-snippets'
 if = 0
 
@@ -247,10 +253,12 @@ repo = 'dense-analysis/ale'
 hook_add = '''
 let g:ale_fixers = {
 \   'javascript': ['eslint'],
+\   'ruby': ['rubocop'],
 \}
 let g:ale_lint_on_text_changed = 0
 let g:ale_linters = {
       \ 'javascript': ['eslint'],
+      \ 'ruby': ['rubocop'],
       \ 'html': ['tidy'],
       \ 'css': ['csslint'],
       "\ 'rust': ['cargo', 'rls', 'rustc', 'clippy', 'rustfmt'],

@@ -758,7 +758,7 @@ let g:VimTodoListsDatesFormat = "%F"
 [[plugins]]
 repo     = 'prettier/vim-prettier'
 build    = 'npm install'
-on_ft    = ['javascript', 'typescript', 'vue', 'css', 'scss', 'json', 'markdown', 'html']
+on_ft    = ['javascript', 'typescript', 'vue', 'css', 'scss', 'json', 'markdown', 'html', 'yaml']
 hook_source = '''
   " @formatアノテーションを持ったファイルの自動フォーマットを無効にする
   let g:prettier#autoformat = 0
