@@ -70,6 +70,9 @@ repo = 'jiangmiao/simple-javascript-indenter'
 
 [[plugins]]
 repo = 'elzr/vim-json'
+hook_add = '''
+let g:vim_json_syntax_conceal = 0
+'''
 
 [[plugins]]
 repo = 'vim-jp/autofmt'
@@ -107,7 +110,6 @@ if = 0
 
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
-if = 0
 
 #[[plugins]]
 #repo = 'osyo-manga/unite-vimpatches'
@@ -316,7 +318,7 @@ repo = 'haya14busa/vim-open-googletranslate'
 
 [[plugins]]
 repo = 'neoclide/coc.nvim'
-merged = 0
+merged = '0'
 rev = 'release'
 hook_add = '''
 " if hidden is not set, TextEdit might fail.
@@ -447,4 +449,29 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() :
+'''
+
+#[[plugins]]
+#repo = 'neoclide/coc-denite'
+
+[[plugins]]
+repo = 'dbgx/lldb.nvim'
+hook_add='''
+nmap <M-b> <Plug>LLBreakSwitch
+vmap <S-F2> <Plug>LLStdInSelected
+nnoremap <S-F4> :LLstdin<CR>
+nnoremap <F5> :LLmode debug<CR>
+nnoremap <S-F5> :LLmode code<CR>
+nnoremap <F8> :LL continue<CR>
+nnoremap <S-F8> :LL process interrupt<CR>
+nnoremap <F9> :LL print <C-R>=expand('<cword>')<CR>
+vnoremap <F9> :<C-U>LL print <C-R>=lldb#util#get_selection()<CR><CR>
+'''
+
+[[plugins]]
+repo = 'luochen1990/rainbow'
+hook_add='''
+let g:rainbow_active = 1
 '''

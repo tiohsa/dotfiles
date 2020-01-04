@@ -32,7 +32,6 @@ repo = 'Shougo/neosnippet.vim'
 depends = ['neosnippet-snippets', 'context_filetype.vim']
 on_event = 'InsertCharPre'
 on_ft = 'snippet'
-if = 0
 hook_source = '''
   "imap <silent>L     <Plug>(neosnippet_jump_or_expand)
   "smap <silent>L     <Plug>(neosnippet_jump_or_expand)
@@ -46,7 +45,7 @@ hook_source = '''
   let g:neosnippet#expand_word_boundary = 1
 
   " let g:snippets_dir = '~/.vim/snippets/,~/.vim/bundle/snipmate/snippets/'
-  let g:neosnippet#snippets_directory = '~/.cache/dein/repos/github.com/honza/vim-snippets/snippets'
+  let g:neosnippet#snippets_directory = '~/.cache/dein/repos/github.com/vim-snippets/snippets'
 '''
 
 [[plugins]]
@@ -768,3 +767,10 @@ hook_source = '''
 
   autocmd BufWritePre *.js,*.ts,*.vue,*.css,*.scss,*.json,*.md,*.html PrettierAsync
 '''
+
+[[plugins]]
+repo = "shougo/deol.nvim"
+hook_add = """
+source ~/.vim/rc/plugins/deol.rc.vim
+"""
+
